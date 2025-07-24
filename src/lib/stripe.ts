@@ -38,7 +38,7 @@ export async function redirectToCheckout(email: string): Promise<{ success: bool
 }
 
 // Check if user came from successful payment
-export function checkPaymentSuccess(): { success: boolean; sessionId?: string } {
+export function checkPaymentSuccess(): { success: boolean; sessionId?: string | null } {
   const urlParams = new URLSearchParams(window.location.search);
   const success = urlParams.get('success');
   const sessionId = urlParams.get('session_id');

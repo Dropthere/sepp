@@ -57,7 +57,6 @@ export interface TrainingProgram {
   daysPerWeek: number;
   days: TrainingDay[];
   customNote?: string;
-  customNote?: string;
 }
 
 export interface FoodItem {
