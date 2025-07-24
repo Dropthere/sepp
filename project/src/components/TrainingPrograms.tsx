@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { UserData, ComparisonResult, TrainingProgram } from '../types';
 import { analyzeWeakPoints, calculateProgramSuitability, getCustomizedProgram } from '../utils/trainingRecommendations';
-import { Target, Play, Clock, TrendingUp, AlertCircle, CheckCircle, Star, Zap } from 'lucide-react';
+import { Target, Play, Clock, TrendingUp, AlertCircle, CheckCircle, Star, Zap, Dumbbell } from 'lucide-react';
 
 interface TrainingProgramsProps {
   userData: UserData;

@@ -1,15 +1,13 @@
 {
-  "name": "bodybuilding-tracker",
+  "name": "pro-physique-tracker",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "deploy": "npm run build && vercel --prod",
-    "git-deploy": "git add . && git commit -m 'Deploy to production' && git push origin main"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@stripe/stripe-js": "^7.6.1",

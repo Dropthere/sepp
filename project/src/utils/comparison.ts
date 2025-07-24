@@ -87,38 +87,5 @@ export function getRecommendations(userData: UserData, bestMatch: ComparisonResu
     recommendations.push("Consider progressive overload in your training to continue building muscle mass.");
   }
   
-  // Add next target recommendation
-  const nextTarget = findNextTarget(userData, bestMatch);
-  if (nextTarget) {
-    recommendations.push(`Next target: Work towards ${nextTarget.competitor.name} (${nextTarget.similarity}% match) in the ${nextTarget.competitor.division} division.`);
-  }
-  
   return recommendations.slice(0, 6);
-}
-
-function findNextTarget(userData: UserData, currentBest: ComparisonResult): ComparisonResult | null {
-  // Import competitors to avoid circular dependency
-  const maleCompetitors = (await import('../data/competitors')).maleCompetitors;
-  const femaleCompetitors = (await import('../data/competitors')).femaleCompetitors;
-  const competitors = userData.gender === 'male' ? maleCompetitors : femaleCompetitors;
-  
-  const betterCompetitors = competitors.filter((comp: Competitor) => {
-    const userMeasurements = userData.measurements;
-    const compMeasurements = comp.measurements;
-    
-    // Check if this competitor has larger measurements in key areas
-    const hasLargerMeasurements = 
-      compMeasurements.chest > userMeasurements.chest ||
-      compMeasurements.bicep > userMeasurements.bicep ||
-      compMeasurements.thigh > userMeasurements.thigh;
-    
-    return hasLargerMeasurements && comp.name !== currentBest.competitor.name;
-  });
-  
-  if (betterCompetitors.length === 0) return null;
-  
-  const nextTargets = betterCompetitors.map((comp: Competitor) => calculateSimilarity(userData, comp));
-  nextTargets.sort((a, b) => b.similarity - a.similarity);
-  
-  return nextTargets[0] || null;
 }
