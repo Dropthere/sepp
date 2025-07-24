@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-node_modules
-=======
 # Logs
 logs
 *.log
@@ -38,4 +35,3 @@ dist-ssr
 
 # Supabase
 .supabase
->>>>>>> 0c0ded8 (Update project with new changes)
